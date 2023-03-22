@@ -17,7 +17,19 @@ RUN apt-get update -y && \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/li
 
-RUN echo "#!/bin/sh" > /start.sh && echo "[ -d \"/app/.git\" ] && echo Running git pull $""GIT_URL || echo Running git clone $""GIT_URL ." >> /start.sh && echo "[ -d \"/app/.git\" ] && git pull $""GIT_URL || git clone $""GIT_URL ." >> /start.sh && echo "echo Running pip install -r requirements.txt" >> /start.sh && echo "pip install -r requirements.txt" >> /start.sh && echo "echo Running python $""RUN_SCRIPT" >> /start.sh && echo "python $""RUN_SCRIPT" >> /start.sh 
+RUN echo "#!/bin/sh" > /start.sh && \
+	echo "[ -d \"/app/.git\" ] && echo Running git pull $""GIT_URL || echo Running git clone $""GIT_URL ." >> /start.sh && \
+	echo "[ -d \"/app/.git\" ] && git pull $""GIT_URL || git clone $""GIT_URL ." >> /start.sh && \
+	echo "echo Running pip install virtualenv" >> /start.sh && \
+	echo "pip install virtualenv" >> /start.sh && \
+	echo "echo Running python -m venv env" >> /start.sh && \
+	echo "python -m venv env" >> /start.sh && \
+	echo "echo source env/bin/activate" >> /start.sh && \
+	echo "source env/bin/activate" >> /start.sh && \
+	echo "echo Running pip install -r requirements.txt" >> /start.sh && \
+	echo "pip install -r requirements.txt" >> /start.sh && \
+	echo "echo Running python $""RUN_SCRIPT" >> /start.sh && \
+	echo "python $""RUN_SCRIPT" >> /start.sh 
 
 RUN chmod +x /start.sh && mkdir /app
 
