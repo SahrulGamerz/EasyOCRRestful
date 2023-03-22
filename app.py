@@ -8,6 +8,12 @@ import easyocr
 import re
 import base64
 import io
+import os
+
+if 'ENV' in os.environ:
+    PORT = os.environ['PORT']
+else:
+    PORT = 2000
 
 url_regex = re.compile(
         r'^(?:http|ftp)s?://' # http:// or https://
@@ -73,7 +79,7 @@ def recognition(image, lang):
     return results
 
 @app.route('/ocr', methods=['GET', 'POST'])
-def process():
+def ocr():
     """
     received request from client and process the image
     :return: dict of width and points
@@ -89,6 +95,13 @@ def process():
         "results": results
     }
 
+@app.route('/health', methods=['GET', 'POST'])
+def health():
+    return {
+        'code': 200,
+        'message': 'Server is up'
+    }
+
 if __name__ == "__main__":
-    serve(app, host='0.0.0.0', port=2000)
-    #app.run(host='0.0.0.0', port=2000, debug=True)
+    serve(app, host='0.0.0.0', port=PORT)
+    #app.run(host='0.0.0.0', port=PORT, debug=True)
