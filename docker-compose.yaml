@@ -6,7 +6,7 @@ services:
         volumes:
             - '/root/docker/easyocrrestful/data:/app' #Volume binding
         ports:
-            - '3000:2000/tcp' # Host:Container/Protocol
+            - '3000:3000/tcp' # Host:Container/Protocol
         container_name: easyocr-restful
         image: easyocr-restful # image name, build using docker build -t easyocr-restful .
         deploy:
