@@ -11,8 +11,10 @@ import io
 import os
 
 if 'ENV' in os.environ:
+    print("Port specified, using given port")
     PORT = os.environ['PORT']
 else:
+    print("Port not specified, using default port")
     PORT = 2000
 
 url_regex = re.compile(
@@ -103,5 +105,7 @@ def health():
     }
 
 if __name__ == "__main__":
+    print("Serving web on port", PORT)
     serve(app, host='0.0.0.0', port=PORT)
+    serve(app, host='::0', port=PORT)
     #app.run(host='0.0.0.0', port=PORT, debug=True)
