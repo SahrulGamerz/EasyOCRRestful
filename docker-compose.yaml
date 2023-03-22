@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+    easyocr-restful:
+		environment:
+			- PORT=3000 # Port to be used inside container
+        volumes:
+            - '/root/docker/easyocrrestful/data:/app' #Volume binding
+        ports:
+            - '3000:2000/tcp' # Host:Container/Protocol
+        container_name: easyocr-restful
+        image: easyocr-restful # image name, build using docker build -t easyocr-restful .
+        deploy:
+            resources:
+                limits:
+                    cpus: '2'
+                    memory: 2048M
+                reservations:
+                    cpus: '2'
+                    memory: 2048M
