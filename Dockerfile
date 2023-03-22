@@ -19,7 +19,7 @@ RUN apt-get update -y && \
 
 RUN echo "#!/bin/sh" > /start.sh && echo "[ -d \"/app/.git\" ] && echo Running git pull $""GIT_URL || echo Running git clone $""GIT_URL ." >> /start.sh && echo "[ -d \"/app/.git\" ] && git pull $""GIT_URL || git clone $""GIT_URL ." >> /start.sh && echo "echo Running pip install -r requirements.txt" >> /start.sh && echo "pip install -r requirements.txt" >> /start.sh && echo "echo Running python $""RUN_SCRIPT" >> /start.sh && echo "python $""RUN_SCRIPT" >> /start.sh 
 
-RUN chmod +x /start.sh && mkdir /app && chown app /app 
+RUN chmod +x /start.sh && mkdir /app
 
 WORKDIR /app 
 
