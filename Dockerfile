@@ -1,4 +1,4 @@
-FROM python:3.9-buster
+FROM pytorch/pytorch
 
 ENV PORT=3000 
 ENV GIT_URL=https://github.com/SahrulGamerz/EasyOCRRestful
