@@ -24,8 +24,8 @@ RUN echo "#!/bin/sh" > /start.sh && \
 	echo "pip install virtualenv" >> /start.sh && \
 	echo "echo Running python -m venv env" >> /start.sh && \
 	echo "python -m venv env" >> /start.sh && \
-	echo "echo source env/bin/activate" >> /start.sh && \
-	echo "source env/bin/activate" >> /start.sh && \
+	echo "echo . env/bin/activate" >> /start.sh && \
+	echo ". env/bin/activate" >> /start.sh && \
 	echo "echo Running pip install -r requirements.txt" >> /start.sh && \
 	echo "pip install -r requirements.txt" >> /start.sh && \
 	echo "echo Running python $""RUN_SCRIPT" >> /start.sh && \
