@@ -28,8 +28,8 @@ RUN echo "#!/bin/sh" > /start.sh && \
 	echo ". env/bin/activate" >> /start.sh && \
 	echo "echo Running pip install -r requirements.txt" >> /start.sh && \
 	echo "pip install -r requirements.txt" >> /start.sh && \
-	echo "echo Running python .\$""RUN_SCRIPT" >> /start.sh && \
-	echo "python .\$""RUN_SCRIPT" >> /start.sh 
+	echo "echo Running python ./$""RUN_SCRIPT" >> /start.sh && \
+	echo "python ./$""RUN_SCRIPT" >> /start.sh 
 
 RUN chmod +x /start.sh && mkdir /app
 

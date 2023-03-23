@@ -13,4 +13,4 @@ docker compose up -d
 docker update --cpus 2 --memory 2048M easyocr-restful
 
 # Optional, view logs
-docker logs easyocr-restful
+docker logs easyocr-restful -f
