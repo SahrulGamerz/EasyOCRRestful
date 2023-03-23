@@ -10,7 +10,7 @@ import base64
 import io
 import os
 
-if 'ENV' in os.environ:
+if 'PORT' in os.environ:
     print("Port specified, using given port")
     PORT = os.environ['PORT']
 else:
