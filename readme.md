@@ -8,9 +8,7 @@
 
 - Edit `build-deploy.sh`, add comment at the front of any optional script
 
-  - Example
-  
-    - `docker update --cpus 2 --memory 2048M easyocr-restful` to `#docker update --cpus 2 --memory 2048M easyocr-restful`
+  - Example: `docker update --cpus 2 --memory 2048M easyocr-restful` to `#docker update --cpus 2 --memory 2048M easyocr-restful`
     
 - Run the script `bash build-deploy.sh` or `chmod +x build-deploy.sh && .\build-deploy.sh`
 
