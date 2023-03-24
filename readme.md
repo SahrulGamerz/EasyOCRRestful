@@ -14,7 +14,7 @@
     
 - Run the script `bash build-deploy.sh` or `chmod +x build-deploy.sh && .\build-deploy.sh`
 
-### HTTP Request:
+# HTTP Request:
 
 - Method: `POST`
 
@@ -42,7 +42,7 @@
 
     _(Placeholder Image above has resolution 300x300px)_
 
-### HTTP Response:
+# HTTP Response:
 
 - Status Code: `200` (Success) or `400` if `image` is not given.
 
